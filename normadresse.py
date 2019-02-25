@@ -1,14 +1,16 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# coding=utf-8
 
 import re
 import csv
 from unidecode import unidecode
 import sys
 import select
+import os
 
 # chargement des expressions régulières de traitement
 regles = []
-with open('normadresse.csv') as abbrev_csv:
+with open(os.path.join(os.path.dirname(__file__), 'normadresse.csv')) as abbrev_csv:
     for row in csv.DictReader(abbrev_csv):
         row['etape'] = float(row['etape'])
         regles.append(row)
